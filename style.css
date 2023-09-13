@@ -1,0 +1,86 @@
+body {
+    text-align: center;
+    background: rgb(35, 39, 48);
+    font-family: arial;
+    margin: auto;
+    padding: 10px;
+    color: white;
+}
+
+section {
+    background: white;
+    color: black;
+    padding: 10px;
+    margin: auto;
+    width: 600px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.349);
+}
+
+div#res2 {
+    background: rgb(216, 215, 215);
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445) inset;
+}
+
+input[type=button] {
+    background: rgb(255, 0, 0);
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 150px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+input[type=button]:hover {
+    background: rgb(218, 1, 1);
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 150px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+input[type=button]:active {
+    background: rgb(143, 0, 0);
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 150px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.445);
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    transform: translateY(2px);
+}
+
+footer {
+    padding: 20px;
+    font-style: italic;
+}
+
+textarea {
+    background: rgb(216, 215, 215);
+    width: 80%;
+    padding: 10px;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445) inset;
+    outline: none;
+    border: none;
+    font-family: arial;
+}
+
+div {
+    padding: 5px;
+    margin: 10px;
+}
