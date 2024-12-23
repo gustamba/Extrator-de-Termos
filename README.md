@@ -1,6 +1,6 @@
 # Extrator de Termos
 
-Este é um projeto desenvolvido para extrair termos específicos de textos jurídicos. O **Extrator de Termos** identifica palavras entre aspas e palavras em CAIXA ALTA em documentos, retornando esses termos de forma organizada.
+Este é um projeto desenvolvido para extrair termos específicos de textos jurídicos. O **Extrator de Termos** identifica palavras entre aspas e palavras em CAIXA ALTA em documentos juridicos, retornando esses termos de forma organizada.
 
 ## Tecnologias Utilizadas
 - **JavaScript (Node.js)**
