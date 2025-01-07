@@ -1,47 +1,68 @@
-var freg = document.getElementsByName('reg');
-var txt = document.getElementById('txt1');
-var res2 = document.getElementById('res2');
+document.getElementById("uploadForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-function extrair() {
-    let m = 0;
-    res2.innerHTML="";  //limpa a área de termos exportados
-    //Verifica se campo está com o texto preenchido
-    if (txt.value == 0) { 
-        window.alert("Cole um texto antes de extrair os termos");
-    } else {
-        //Verifica qual regex esta selecionado
-        if (freg[0].checked) {
-          //Palavras entre aspas
-         var regex = /(\"|“).+?(\"|”)/gm;
-        } else {
-            //Palavras com maiúsculo e próximas
-            var regex = /\b[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|\b[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|\b[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|\b[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|\b[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|\b[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+[’ ]+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b|\b[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+\b/gm;
-        }
-        //Procurar por matchs
-        while ((m = regex.exec(txt.value)) !== null) {
-            // This is necessary to avoid infinite loops with zero-width matches
-            if (m.index === regex.lastIndex) {
-                regex.lastIndex++;
-            }
-            // The result can be accessed through the `m`-variable.
-            m.forEach((match, groupIndex) => {
-                if (groupIndex == 0 && match.length>2) {
-                    let match1 = match.replace(/(\"|“|\"|”)/gm,"");
-                    let match2 = match1.replace(/\bTHE \b|\bTHIS \b|\bIN \b|\bOF\b/gm,"");
-                    res2.innerHTML+=`${match2}` + '\n';
-                    console.log(`Found match, group ${groupIndex}: ${match}`);
-                }
-            });
-        }
+    const fileInput = document.getElementById("fileInput");
+    const extractionType = document.getElementById("extractionType").value;
+
+    if (!fileInput.files.length) {
+        alert("Por favor, envie um arquivo .docx.");
+        return;
     }
+
+    const file = fileInput.files[0];
+
+    try {
+        const text = await extractTextFromDocx(file);
+        const extractedTerms = extractTerms(text, extractionType);
+
+        if (extractedTerms.length === 0) {
+            alert("Nenhum termo encontrado.");
+            return;
+        }
+
+        const workbook = XLSX.utils.book_new();
+        const worksheet = XLSX.utils.aoa_to_sheet([["Glossários"], ...extractedTerms.map(term => [term])]);
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Glossários");
+
+        const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+        const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
+
+        const url = URL.createObjectURL(blob);
+        const downloadLink = document.getElementById("downloadLink");
+        downloadLink.href = url;
+        downloadLink.download = "Glossário.xlsx";
+        downloadLink.style.display = "block";
+    } catch (error) {
+        alert("Erro ao processar o arquivo: " + error.message);
+    }
+});
+
+async function extractTextFromDocx(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const arrayBuffer = e.target.result;
+            mammoth.extractRawText({ arrayBuffer })
+                .then(result => resolve(result.value))
+                .catch(reject);
+        };
+        reader.onerror = () => reject(new Error("Erro ao ler o arquivo."));
+        reader.readAsArrayBuffer(file);
+    });
 }
 
-function copiarTexto() {
-    if (res2.innerHTML == 0) {
-        window.alert("Extraia os termos antes de copiar")
-    } else {
-        res2.select();
-        document.execCommand("Copy");
-        alert("Termos copiados!");
+function extractTerms(content, type) {
+    const quotesPattern = /("|“).+?("|”)/gm;
+    const capslockPattern = /\b[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+(?:\s+[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+)*\b/gm;
+
+    let matches = [];
+    if (type === "quotes") {
+        matches = content.match(quotesPattern) || [];
+        return matches.map(term => term.replace(/("|“|”)/g, ""));
+    } else if (type === "capslock") {
+        matches = content.match(capslockPattern) || [];
+        return matches;
     }
+
+    return [];
 }

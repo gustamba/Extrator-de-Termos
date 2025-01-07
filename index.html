@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extrator de termos</title>
+    <title>Extrator de Termos</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
 </head>
 <body>
-    <header><h1>Extrator de termos</h1></header>
-    <section>
-        <div>Exportar termos:
-        <input type="radio" name="reg" id="reg1" checked>
-        <label for="reg1">entre aspas</label>
-        <input type="radio" name="reg" id="reg2">
-        <label for="reg2">em caps</label>
-        </div>
-        <div><textarea name="txt1" id="txt1" cols="60" rows="10" placeholder="Cole o texto aqui"></textarea></div>
-        <div><input type="button" value="EXTRAIR TERMOS" onclick=extrair()></div>
-        <div><textarea name="Resultado" id="res2" cols="30" rows="10" placeholder="Os termos vão aparecer aqui"></textarea></p></div>
-        <div><input type="button" value="COPIAR TERMOS" onclick=copiarTexto()></div>
-    </section>
-    <footer>&copy; AliançaTraduções 2021 </footer>
+    <div class="container">
+        <h1>Extrator de Termos Jurídicos</h1>
+        <form id="uploadForm">
+            <label for="fileInput">Envie seu arquivo .docx:</label>
+            <input type="file" id="fileInput" accept=".docx" required>
+
+            <label for="extractionType">Tipo de extração:</label>
+            <select id="extractionType">
+                <option value="quotes">Termos entre aspas</option>
+                <option value="capslock">Palavras em CAIXA ALTA</option>
+            </select>
+
+            <button type="submit">Extrair Termos</button>
+        </form>
+        <a id="downloadLink" style="display:none;">Baixar Glossário</a>
+    </div>
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 </html>

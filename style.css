@@ -1,86 +1,70 @@
-body {
-    text-align: center;
-    background: rgb(35, 39, 48);
-    font-family: arial;
-    margin: auto;
-    padding: 10px;
-    color: white;
-}
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
 
-section {
-    background: white;
-    color: black;
-    padding: 10px;
-    margin: auto;
-    width: 600px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.349);
-}
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+        }
 
-div#res2 {
-    background: rgb(216, 215, 215);
-    width: 50%;
-    padding: 10px;
-    margin: auto;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445) inset;
-}
+        h1 {
+            font-size: 1.5em;
+            color: #333;
+        }
 
-input[type=button] {
-    background: rgb(255, 0, 0);
-    border: none;
-    outline: none;
-    padding: 10px;
-    width: 150px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);
-    border-radius: 20px;
-    font-weight: bold;
-    color: white;
-}
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
 
-input[type=button]:hover {
-    background: rgb(218, 1, 1);
-    border: none;
-    outline: none;
-    padding: 10px;
-    width: 150px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445);
-    border-radius: 20px;
-    font-weight: bold;
-    color: white;
-}
+        input[type="file"], select, button {
+            margin-top: 10px;
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
 
-input[type=button]:active {
-    background: rgb(143, 0, 0);
-    border: none;
-    outline: none;
-    padding: 10px;
-    width: 150px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.445);
-    border-radius: 20px;
-    font-weight: bold;
-    color: white;
-    transform: translateY(2px);
-}
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-footer {
-    padding: 20px;
-    font-style: italic;
-}
+        button:hover {
+            background-color: #0056b3;
+        }
 
-textarea {
-    background: rgb(216, 215, 215);
-    width: 80%;
-    padding: 10px;
-    margin: auto;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.445) inset;
-    outline: none;
-    border: none;
-    font-family: arial;
-}
+        button:active {
+            background-color: #013d7e;
+            translate: 1px 1px;
+        }
 
-div {
-    padding: 5px;
-    margin: 10px;
-}
+        #downloadLink {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        #downloadLink:hover {
+            text-decoration: underline;
+        }
