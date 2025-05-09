@@ -14,10 +14,16 @@ Este é um projeto desenvolvido para extrair termos específicos de textos jurí
 
 ## Como Rodar o Projeto
 
+
+
 ### 1. Clone o repositório
 ```bash
 git clone https://github.com/gustamba/Extrator-de-Termos.git
 cd Extrator-de-Termos
+```
 
 ### 2. Suba em uma hospedagem
-Faça o upload dos arquivos em uma hospedagem
+```bash
+# Faça o upload dos arquivos em uma hospedagem
+scp -r * usuario@servidor:/caminho/para/diretorio
+```
